@@ -9,6 +9,16 @@ import ModalDelete from '../partials/modals/ModalDelete';
 import ModalConfirm from '../partials/modals/ModalConfirm';
 import ModalValidation from '../partials/modals/ModalValidation';
 import ModalError from '../partials/modals/ModalError';
+import ToastSuccess from '../partials/ToastSuccess';
+import LoadMore from '../partials/LoadMore';
+import SpinnerWindow from '../partials/spinners/SpinnerWindow';
+import SpinnerTable from '../partials/spinners/SpinnerTable';
+import TableLoader from '../partials/TableLoader';
+import IconNoData from '../partials/IconNoData';
+import IconServerError from '../partials/IconServerError';
+import ModalAddMovie from './ModalAddMovie';
+import MoviesTable from './MoviesTable';
+import ModalViewMovie from './ModalViewMovie';
 
 const Movies = () => {
   return (
@@ -25,66 +35,21 @@ const Movies = () => {
                           <Plus size={16}/> Add New
                         </button>
                       </div>
-
-                      <div className='mt-10 bg-secondary rounded-md p-4'>
-                      <div className="table-wrapper custom-scroll">
-                        <table>
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th>Status</th>
-                              <th>Title</th>
-                              <th>Year</th>
-                              <th>Duration</th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {Array.from(Array(7).keys()).map((i) => (
-                              <tr keys={i}>
-                              <td>{i+1}.</td>
-                              <td><Pills/></td>
-                              <td>Wedding Singer</td>
-                              <td>1999</td>
-                              <td>1hr 40mins</td>
-                              <td>
-                                <ul className="table-action ">
-                                  {true ? (<>
-                                    <li>
-                                    <button className='tooltip' data-tooltip="View"><FileVideo /></button>
-                                  </li>
-                                  <li>
-                                    <button className='tooltip' data-tooltip="Edit"><FilePenLine /></button>
-                                  </li>
-                                  <li><button className='tooltip' data-tooltip="Archive"><Archive/></button></li>
-                                  </>) : (<>
-                                    <li>
-                                    <button className='tooltip' data-tooltip="Restore"><ArchiveRestore /></button>
-                                    </li>
-                                  <li>
-                                    <button className='tooltip' data-tooltip="Delete"><Trash2 /></button>
-                                    </li>
-                                  </>)}
-                                </ul>
-                              </td>
-                            </tr>
-                            ))}
-                            
-                          </tbody>
-                        </table>
-                      </div>
-                      </div>
-                      
-
+                      <MoviesTable/>
                     </div>
                     <Footer/>
                 </main>
             </div>
         </section>
-        {/* <ModalDelete/> */}
+        
         {/* <ModalConfirm/> */}
         {/* <ModalValidation/> */}
-        <ModalError/>
+        {/* <ModalError/> */}
+        {/* <ToastSuccess/> */}
+        {/* <ModalDelete/> */}
+        {/* <SpinnerWindow/> */}
+        {/* <ModalAddMovie/> */}
+        <ModalViewMovie/>
     </>
   );
 };
