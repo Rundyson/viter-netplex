@@ -78,6 +78,28 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.swiper {
+  min-height: 320px;
+}
+
+.swiper-pagination {
+  top: -0.2rem !important;
+  left: 45% !important;
+  height: 20px !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: white !important;
+  border-radius: 0  !important;
+  width: 12px !important;
+  height: 2px !important;
+  margi: 0 1.5px !important;
+}
+.slider-parent:has(.group:hover) .slider-nav-btn {
+  opacity: 100;
+}
+
+
 
 @layer base {
   
@@ -170,6 +192,9 @@ input::-webkit-inner-spin-button {
   .table-wrapper table tbody tr:nth-child(odd){
     @apply bg-primary;
   }
+  .table-wrapper table thead tr:nth-child(odd){
+    @apply bg-secondary;
+  }
   .table-wrapper table td, .table-wrapper table th{
     @apply p-1.5 text-sm;
   }
@@ -234,22 +259,29 @@ input::-webkit-inner-spin-button {
   .input-wrap input, .input-wrap textarea, .input-wrap select{
     @apply px-2 py-1 w-full outline-none border border-line bg-primary text-body rounded-md focus:border-info;
   }
-  .input-wrap .show-error{
+  .input-wrap span.error-show{
     @apply absolute top-1 right-0 text-alert text-xs italic;
   }
-  .input-wrap:has(.show-error) label {
+  .input-wrap:has(.error-show) label {
     @apply text-alert;
   }
-  .input-wrap:has(.show-error) input,
-  .input-wrap:has(.show-error) textarea, 
-  .input-wrap:has(.show-error) select {
+  .input-wrap:has(.error-show) input,
+  .input-wrap:has(.error-show) textarea, 
+  .input-wrap:has(.error-show) select {
     @apply border-alert animate-shake;
   }
-  .input-wrap:has(.show-error) input:disabled,
-  .input-wrap:has(.show-error) textarea:disabled, 
-  .input-wrap:has(.show-error) select:disabled {
+  .input-wrap:has(.error-show) input:disabled,
+  .input-wrap:has(.error-show) textarea:disabled, 
+  .input-wrap:has(.error-show) select:disabled {
     @apply pointer-events-none opacity-60;
   }
+  .input-photo-wrap:has(.error-show){
+    @apply border border-alert animate-shake rounded-md;
+  }
+  .input-photo-wrap span.error-show{
+    @apply -top-4;
+  }
+
 }
 
 @layer utilities {

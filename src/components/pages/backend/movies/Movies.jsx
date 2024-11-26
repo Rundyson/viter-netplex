@@ -19,19 +19,27 @@ import IconServerError from '../partials/IconServerError';
 import ModalAddMovie from './ModalAddMovie';
 import MoviesTable from './MoviesTable';
 import ModalViewMovie from './ModalViewMovie';
+import { setIsAdd, setMessage } from '@/components/store/storeAction';
+import { StoreContext } from '@/components/store/storeContext';
 
 const Movies = () => {
+  // const {dispatch} = React.useContext(StoreContext);
+  const {dispatch, store} = React.useContext(StoreContext)
+
+  const handleAdd = () => {
+    dispatch(setIsAdd(true));
+  }
   return (
     <>
         <section className="layout-main">
             <div className="layout-division">
-            <SideNavigation/>
+            <SideNavigation menu="movies"/>
                 <main>
-                    <Header/>
+                    <Header title="Movies" subtitle="List of available movies"/>
                     <div className="p-8">
                       <div className="flex justify-between items-center">
                         <SearchBar/>
-                        <button className="btn btn-add">
+                        <button className="btn btn-add" onClick={handleAdd}>
                           <Plus size={16}/> Add New
                         </button>
                       </div>
@@ -41,15 +49,14 @@ const Movies = () => {
                 </main>
             </div>
         </section>
+
         
-        {/* <ModalConfirm/> */}
-        {/* <ModalValidation/> */}
-        {/* <ModalError/> */}
-        {/* <ToastSuccess/> */}
-        {/* <ModalDelete/> */}
+        {store.validate && <ModalValidation/>}
+        {store.error && <ModalError/>}
+      {store.success && <ToastSuccess/>}
         {/* <SpinnerWindow/> */}
-        {/* <ModalAddMovie/> */}
-        <ModalViewMovie/>
+        {store.isAdd && <ModalAddMovie/>}
+        
     </>
   );
 };
