@@ -57,7 +57,7 @@ const ModalAddMovie = () => {
 
             <Form>
 
-                <div className="modal-form max-h-[calc(100vh-56px)] h-full grid grid-rows-[1fr_auto]">
+                <div className="modal-form h-[calc(100vh-56px)] h-full grid grid-rows-[1fr_auto]">
                     <div className="form-wrapper p-4 max-h-[85vh] h-full overflow-y-auto custom-scroll">
 
                   <div className="input-wrap relative  group input-photo-wrap h-[150px] ">
