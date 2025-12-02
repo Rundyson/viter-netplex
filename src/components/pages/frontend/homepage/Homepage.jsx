@@ -6,7 +6,7 @@ const Homepage = () => {
   return (
     <>
     <Banner/>
-    <div className="py-24 mt-20 bg-dark">
+    <div className="py-24 mt-5 bg-dark">
     <SliderMovie title="K-Drama" filter="Kdrama"/>
     <SliderMovie title="Anime" filter="Anime"/>
     <SliderMovie title="International" filter="International"/>

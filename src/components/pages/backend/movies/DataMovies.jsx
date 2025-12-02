@@ -1,5 +1,4 @@
 export const movies = [
-    // International category (7 movies)
     {
         movie_aid: 1,
         movie_title: "Avengers",
